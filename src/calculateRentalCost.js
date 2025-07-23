@@ -6,16 +6,22 @@
  * @return {number}
  */
 function calculateRentalCost(days) {
-  if (days < 3) {
-    return days * 40;
+  const basePrice = 40;
+  const longTerm = 7;
+  const midTerm = 3;
+  const midTermDiscount = 20;
+  const longTermDiscount = 50;
+
+  if (days < midTerm) {
+    return days * basePrice;
   }
 
-  if (days < 7) {
-    return days * 40 - 20;
+  if (days < longTerm) {
+    return days * basePrice - midTermDiscount;
   }
 
-  if (days >= 7) {
-    return days * 40 - 50;
+  if (days >= longTerm) {
+    return days * basePrice - longTermDiscount;
   }
 }
 
